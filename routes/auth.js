@@ -160,7 +160,7 @@ router.post('/login', async (req, res) => {
     const user = await User.findOne({
       email: { $regex: new RegExp(`^${email}$`, 'i') },
     }).populate('branchId', 'status');
-
+  res.send(user);
     if (!user) {
       // console.log('User not found for email:', email);
       return res.status(401).json({ message: 'Invalid credentials' });
