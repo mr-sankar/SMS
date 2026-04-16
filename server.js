@@ -562,6 +562,9 @@ app.post('/attendance', authMiddleware, restrictAccess, async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 // GET: Fetch attendance records by date
 app.get(
   '/attendance/:teacherEmail/:date',
