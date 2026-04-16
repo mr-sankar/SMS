@@ -57,7 +57,10 @@ const driverRoutes = require('./routes/driver.js');
 
 const app = express();
 app.use(express.json()); // ✅ Ensure JSON parsing is enabled
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 
 app.use('/api/auth', authRoutes); // ✅ This ensures routes are available
 app.use('/api', studRoutes);
